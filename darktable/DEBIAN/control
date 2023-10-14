@@ -1,0 +1,7 @@
+Package: yowcow-darktable
+Name: yowcow-darktable
+Description: Darktable.
+Maintainer: Yoko OYAMA <yowcow@gmail.com>
+Version: {{PKGVERSION}}-{{PKGRELEASE}}
+Conflicts: darktable
+Architecture: {{ARCH}}
