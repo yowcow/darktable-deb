@@ -1,3 +1,5 @@
+DEBIAN_FRONTEND=nointeractive
+
 apt-get update \
     && apt-get install -yq \
         curl \
@@ -35,6 +37,7 @@ apt-get update \
         libcolord-dev \
         libcolord-gtk-dev \
         libcups2-dev \
+        libgmic-dev \
         libgphoto2-dev \
         libgraphicsmagick1-dev \
         libheif-dev \
@@ -42,7 +45,9 @@ apt-get update \
         liblua5.4-dev \
         libopenexr-dev \
         libopenjp2-7-dev \
+        libosmgpsmap-1.0-dev \
         libsdl2-dev \
         libsecret-1-dev \
         libtiff5-dev \
         libwebp-dev \
+    && echo OK
