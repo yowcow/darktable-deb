@@ -13,10 +13,6 @@ jobs:
         uses: actions/checkout@v3
       - name: Build
         run: make all build
-      #- name: apt install
-      #  run: sh ./apt-install.ubuntu-23.10.sh
-      #- name: build darktable
-      #  run: make -C darktable all build
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
