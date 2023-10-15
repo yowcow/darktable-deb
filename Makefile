@@ -8,15 +8,16 @@ all: Dockerfile
 		-f $< \
 		.
 
-DOCKER_RUN = docker run --rm -it \
-				-v `pwd`:/app:rw \
-				-w /app/darktable \
-				$(DOCKER_IMAGE)
-
 build:
-	$(DOCKER_RUN) make all build
+	docker run --rm \
+		-v `pwd`:/app:rw \
+		-w /app/darktable \
+		$(DOCKER_IMAGE) make all build
 
 shell:
-	$(DOCKER_RUN) bash
+	docker run --rm -it \
+		-v `pwd`:/app:rw \
+		-w /app/darktable \
+		$(DOCKER_IMAGE) bash
 
 .PHONY: all build shell
