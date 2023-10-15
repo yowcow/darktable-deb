@@ -1,3 +1,5 @@
+DEBIAN_FRONTEND=nointeractive
+
 apt-get update \
     && apt-get install -yq \
         curl \
@@ -5,14 +7,16 @@ apt-get update \
         lsb-release \
     && apt-get install -yq \
         build-essential \
+        clang \
         cmake \
-        g++ \
-        gcc \
+        desktop-file-utils \
         intltool \
-        libcolord-gtk1 \
         libcurl4-gnutls-dev \
         libexiv2-dev \
+        libglib2.0-dev \
         libgtk-3-dev \
+        libimage-exiftool-perl \
+        libimath-dev \
         libjpeg-dev \
         libjson-glib-dev \
         liblcms2-dev \
@@ -20,29 +24,30 @@ apt-get update \
         libpugixml-dev \
         librsvg2-dev \
         libsqlite3-dev \
-        libtiff5-dev \
         libxml2-dev \
         libxml2-utils \
+        libzstd-dev \
+        python3-imath \
+        python3-jsonschema \
         xsltproc \
+        zlib1g-dev \
     && apt-get install -yq \
-        clang \
-        fop \
-        imagemagick \
+        iso-codes \
+        libavif-dev \
         libcolord-dev \
         libcolord-gtk-dev \
         libcups2-dev \
+        libgmic-dev \
         libgphoto2-dev \
         libgraphicsmagick1-dev \
-        libimage-exiftool-perl \
-        liblua5.3-dev \
+        libheif-dev \
+        libjxl-dev \
+        liblua5.4-dev \
         libopenexr-dev \
         libopenjp2-7-dev \
         libosmgpsmap-1.0-dev \
-        libsaxon-java \
+        libsdl2-dev \
         libsecret-1-dev \
-        libsoup2.4-dev \
+        libtiff5-dev \
         libwebp-dev \
-        llvm-dev \
-        openjdk-19-jre \
-        po4a \
-        python3-jsonschema
+    && echo OK
