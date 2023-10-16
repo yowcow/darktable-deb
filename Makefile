@@ -1,5 +1,5 @@
 UBUNTU_RELEASE = 23.10
-DOCKER_IMAGE = darktable-build:$(UBUNTU_RELEASE)
+DOCKER_IMAGE = yowcow/darktable-build:ubuntu-$(UBUNTU_RELEASE)
 
 all: Dockerfile
 	docker build \
@@ -10,14 +10,20 @@ all: Dockerfile
 
 build:
 	docker run --rm \
-		-v `pwd`:/app:rw \
-		-w /app/darktable \
+		-v `pwd`/darktable:/app:rw \
+		-w /app \
 		$(DOCKER_IMAGE) make all build
+
+clean:
+	docker run --rm \
+		-v `pwd`/darktable:/app:rw \
+		-w /app \
+		$(DOCKER_IMAGE) make clean
 
 shell:
 	docker run --rm -it \
-		-v `pwd`:/app:rw \
-		-w /app/darktable \
+		-v `pwd`/darktable:/app:rw \
+		-w /app \
 		$(DOCKER_IMAGE) bash
 
-.PHONY: all build shell
+.PHONY: all build clean shell

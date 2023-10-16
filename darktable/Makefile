@@ -9,11 +9,11 @@ else
 ARCH = $(PROCESSOR)
 endif
 
-SOURCE = darktable-$(PKGVERSION)
+SRCDIR = darktable-$(PKGVERSION)
 ARTIFACT = yowcow-darktable.$(PKGVERSION)-$(PKGRELEASE).ubuntu-$(UBUNTU_RELEASE).$(ARCH).deb
 DESTDIR = /tmp/darktable
 
-all: $(SOURCE)
+all: $(SRCDIR)
 
 darktable-%.tar.xz:
 	curl -L "https://github.com/darktable-org/darktable/releases/download/release-$*/darktable-$*.tar.xz" -o $@
@@ -27,7 +27,7 @@ build: $(ARTIFACT)
 	$(MAKE) $(DESTDIR)/DEBIAN/control
 	dpkg-deb --build $< $@
 
-$(DESTDIR): $(SOURCE)
+$(DESTDIR): $(SRCDIR)
 	cd $< \
 		&& ./build.sh \
 			--prefix /usr \
@@ -47,6 +47,6 @@ $(DESTDIR)/DEBIAN/control: DEBIAN/control
 		> $@
 
 clean:
-	rm -rf $(SOURCE)
+	rm -rf $(SRCDIR)
 
 .PHONY: all build clean
