@@ -32,7 +32,11 @@ $(DESTDIR): $(SOURCE)
 		&& ./build.sh \
 			--prefix /usr \
 			--build-type Release \
-		&& DESTDIR=$(DESTDIR) cmake --build build --target install -- -j16
+			-- -DBINARY_PACKAGE_BUILD=ON \
+		&& DESTDIR=$(DESTDIR) cmake \
+			--build build \
+			--target install \
+			-- -j16
 
 $(DESTDIR)/DEBIAN/control: DEBIAN/control
 	mkdir -p $(dir $@)
